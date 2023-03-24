@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=4.0
+Type=Application
+Name=Android Studio
+Icon=/home/moviles/android-studio/bin/studio.png
+Exec=/home/moviles/android-studio/bin/studio.sh
+Comment=Android Studio
+Categories=Development;IDE;
+Terminal=false

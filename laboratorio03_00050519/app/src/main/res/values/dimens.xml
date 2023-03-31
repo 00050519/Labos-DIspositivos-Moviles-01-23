@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_text">16sp</dimen>
+    <dimen name="counter_text">32sp</dimen>
+    <dimen name="img_width">150dp</dimen>
+    <dimen name="img_height">150dp</dimen>
+    <dimen name="small_margin">36dp</dimen>
+    <dimen name="margin_Large">48dp</dimen>
+</resources>

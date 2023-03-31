@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Laboratorio3_00050519</string>
+    <string name="cantidad_de_dinero_text">Cantidad de Dinero</string>
+    <string name="counter_hint">0</string>
+    <string name="c5_text">0.05</string>
+    <string name="c10_text">0.10</string>
+    <string name="c25_text">0.25</string>
+    <string name="d1_text">1.00</string>
+</resources>

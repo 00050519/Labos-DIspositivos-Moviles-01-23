@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">laboratorio4_00050519</string>
+    <string name="title_text">Rellena la siguiente información</string>
+    <string name="email_hint">Correo Electronico</string>
+    <string name="name_hint">Nombre</string>
+    <string name="name_text_data">Name:</string>
+    <string name="email_text_data">Email:</string>
+    <string name="phone_text_data">Phone</string>
+    <string name="confirm_information_text">Confirma tu información</string>
+    <string name="share_button_text">Compartir</string>
+    <string name="save_button_text">Guardar</string>
+    <string name="phone_number_hint">Phone number</string>
+</resources>

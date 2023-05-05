@@ -1,100 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.movie.newMovieFragment"
-    android:padding="@dimen/content_margin"
-    android:background="@color/backgroundLayout">
+    tools:context=".ui.movie.newMovieFragment">
 
-    <LinearLayout
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.laboratorio6_00050519.ui.movie.MovieViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:padding="@dimen/content_margin"
+        android:background="@color/backgroundLayout">
 
-        <TextView
+        <LinearLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/new_movie_title"
-            android:textSize="@dimen/title_text"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:layout_marginBottom="@dimen/medium_gap"/>
+            android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/name_texfield_hint_text"
-            app:hintTextColor="@color/white"
-            android:layout_marginBottom="@dimen/default_gap">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textField"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/cardLayout"
-                />
+                android:text="@string/new_movie_title"
+                android:textSize="@dimen/title_text"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_marginBottom="@dimen/medium_gap"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/category_textfield_hint_text"
-            app:hintTextColor="@color/white"
-            android:layout_marginBottom="@dimen/default_gap">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textField2"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/cardLayout"
-                />
+                android:hint="@string/name_texfield_hint_text"
+                app:hintTextColor="@color/white"
+                android:layout_marginBottom="@dimen/default_gap">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textField"
+                    android:text="@={viewmodel.name}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/cardLayout"
+                    />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/description_textfield_hint_text"
-            app:hintTextColor="@color/white"
-            android:layout_marginBottom="@dimen/default_gap">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textField3"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/cardLayout"
-                />
+                android:hint="@string/category_textfield_hint_text"
+                app:hintTextColor="@color/white"
+                android:layout_marginBottom="@dimen/default_gap">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textField2"
+                    android:text="@={viewmodel.category}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/cardLayout"
+                    />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/calification_textfield_hint_text"
-            app:hintTextColor="@color/white"
-            android:layout_marginBottom="@dimen/default_gap">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textField4"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/cardLayout"
-                />
+                android:hint="@string/description_textfield_hint_text"
+                app:hintTextColor="@color/white"
+                android:layout_marginBottom="@dimen/default_gap">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textField3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewmodel.description}"
+                    android:background="@color/cardLayout"
+                    />
 
-        <Button
-            android:id="@+id/submit_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/submit_button_text"
-            android:backgroundTint="@color/buttonColor"
-            android:layout_gravity="center"/>
-    </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/calification_textfield_hint_text"
+                app:hintTextColor="@color/white"
+                android:layout_marginBottom="@dimen/default_gap">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textField4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@={viewmodel.qualification}"
+                    android:background="@color/cardLayout"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/submit_button"
+                android:layout_width="wrap_content"
+                android:onClick="@{() -> viewmodel.createMovie()}"
+                android:layout_height="wrap_content"
+                android:text="@string/submit_button_text"
+                android:backgroundTint="@color/buttonColor"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -8,22 +8,22 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
 import com.example.laboratorio6_00050519.R
 import com.example.laboratorio6_00050519.data.model.MovieModel
+import com.example.laboratorio6_00050519.ui.movie.MovieViewModel
 import com.example.laboratorio6_00050519.data.movies
+import com.example.laboratorio6_00050519.databinding.FragmentNewMovieBinding
 import com.google.android.material.textfield.TextInputEditText
 
 class newMovieFragment : Fragment() {
 
-    private lateinit var nameEditText: EditText
-    private lateinit var categoryEditText: EditText
-    private lateinit var descriptionEditText: EditText
-    private lateinit var scoreEditText: EditText
-    private lateinit var submitButton: Button
 
-    private val viewModel : MovieViewModel by viewModels() {
+
+    private val viewModel : MovieViewModel by activityViewModels {
         MovieViewModel.Factory
     }
 
@@ -33,42 +33,44 @@ class newMovieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bind(view)
-        addListeners()
-    }
-
-    private fun addListeners() {
-        submitButton.setOnClickListener{
-            var movie = MovieModel(nameEditText.text.toString(), categoryEditText.text.toString(), descriptionEditText.text.toString(), scoreEditText.text.toString())
-            viewModel.addMovies(movie)
-            var showMovies = viewModel.getMovies()
-            var showNumberOfMovies = movies.size
-            Log.d("movies", showMovies.toString())
-        }
+        setViewModel()
+        observeStatus()
     }
 
 
+    private lateinit var binding : FragmentNewMovieBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_movie, container, false)
-    }
-    private fun bind(view: View) {
-        nameEditText = view?.findViewById(R.id.textField) as EditText
-        categoryEditText = view?.findViewById(R.id.textField2) as EditText
-        descriptionEditText = view?.findViewById(R.id.textField3) as EditText
-        scoreEditText = view?.findViewById(R.id.textField4) as EditText
-        submitButton = view?.findViewById(R.id.submit_button) as Button
+        binding = FragmentNewMovieBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
+    private fun setViewModel() {
+        binding.viewmodel = viewModel
+    }
+
+    private fun observeStatus() {
+        viewModel.status.observe(viewLifecycleOwner) {
+            status -> when {
+                status.equals(MovieViewModel.WRONG_INFORMATION) -> {
+                    Log.d(APP_TAG, status)
+                    viewModel.clearStatus()
+                }
+                status.equals(MovieViewModel.MOVIE_CREATED) -> {
+                    Log.d("APP_TAG", status)
+                    Log.d("APP_TAG", viewModel.getMovies().toString())
+
+                    viewModel.clearStatus()
+                    findNavController().popBackStack()
+                }
+            }
+        }
+    }
     companion object {
 
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            newMovieFragment().apply {
-
-            }
+       const val APP_TAG = "APP_TAG"
     }
 }

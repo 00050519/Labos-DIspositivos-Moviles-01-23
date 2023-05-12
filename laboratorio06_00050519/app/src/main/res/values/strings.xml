@@ -17,4 +17,5 @@
     <string name="submit_button_text">SUBMIT</string>
     <string name="coming_soon_text">Coming soon...</string>
     <string name="tbd_score">tbd</string>
+    <string name="add_movie_text">add movie</string>
 </resources>

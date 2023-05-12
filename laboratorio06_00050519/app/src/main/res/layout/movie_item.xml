@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.laboratorio6_00050519.ui.movie.viewmodel.MovieViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/movieItemCardView"
+            android:layout_margin="@dimen/content_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/card_height"
+            app:cardCornerRadius="@dimen/default_corner_radius"
+            android:background="@color/cardLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cardLayout"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <ImageView
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/noimagefound" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/cardLayout"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/movie_title_textview"
+                        android:layout_width="@dimen/movie_title_card_text"
+                        android:layout_height="wrap_content"
+                        android:text="@string/starwars_text"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:id="@+id/movie_score_textview"
+                        android:layout_width="@dimen/movie_title_card_text"
+                        android:layout_height="wrap_content"
+                        android:text="@string/starwars_score"
+                        android:textColor="@color/calification"
+                        android:textAlignment="center"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

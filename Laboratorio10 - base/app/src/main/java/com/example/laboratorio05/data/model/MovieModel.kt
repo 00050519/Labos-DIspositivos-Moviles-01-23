@@ -1,4 +1,4 @@
-package com.example.laboratorio6_00050519.data.model
+package com.example.laboratorio05.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -11,7 +11,7 @@ data class MovieModel (
     @ColumnInfo(name = "category") val category: String,
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "qualification") val qualification: String
-    )
+)
 
 {
     constructor(name: String, category: String, description: String, qualification: String):
